@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
         roundResult.roundResultMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
         roundResult.roundWinner = "player";
       }
-      break;
+      return roundResult; // Returns the result of the round
     // Case where the player's selection is Paper
     case "Paper":
       if (computerSelection === "Rock") {
@@ -48,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
         roundResult.roundResultMessage = `You lose! ${computerSelection} beats ${playerSelection}`;
         roundResult.roundWinner = "computer";
       }
-      break;
+      return roundResult; // Returns the result of the round
     // Case where the player's selection is Scissors
     case "Scissors":
       if (computerSelection === "Rock") {
@@ -60,15 +60,13 @@ function playRound(playerSelection, computerSelection) {
       } else if (computerSelection === "Scissors") {
         roundResult.roundResultMessage = `No Winner! You both played ${playerSelection}`;
       }
-      break;
+      return roundResult; // Returns the result of the round
     // When the player enters none of the expected options
     default:
       console.log("Please play a valid option!");
       game();
       return
-  }
-  // Returns the result of the round
-  return roundResult;
+  }  
 } // End of playRound functionn
 
 /** 
