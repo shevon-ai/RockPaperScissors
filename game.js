@@ -65,6 +65,7 @@ function playRound(playerSelection, computerSelection) {
     default:
       console.log("Please play a valid option!");
       game();
+      return
   }
   // Returns the result of the round
   return roundResult;
