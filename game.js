@@ -63,7 +63,7 @@ function playRound(playerSelection, computerSelection) {
       break;
     // When the player enters none of the expected options
     default:
-      roundResult.roundResultMessage = "Please play a valid option!";
+      console.log("Please play a valid option!");
       game();
   }
   // Returns the result of the round
