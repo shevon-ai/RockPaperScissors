@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
         roundResult.roundResultMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
         roundResult.roundWinner = "player";
       }
-      return roundResult; // Returns the result of the round
+      break;
     // Case where the player's selection is Paper
     case "Paper":
       if (computerSelection === "Rock") {
@@ -48,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
         roundResult.roundResultMessage = `You lose! ${computerSelection} beats ${playerSelection}`;
         roundResult.roundWinner = "computer";
       }
-      return roundResult; // Returns the result of the round
+      break;
     // Case where the player's selection is Scissors
     case "Scissors":
       if (computerSelection === "Rock") {
@@ -60,13 +60,13 @@ function playRound(playerSelection, computerSelection) {
       } else if (computerSelection === "Scissors") {
         roundResult.roundResultMessage = `No Winner! You both played ${playerSelection}`;
       }
-      return roundResult; // Returns the result of the round
+      break;
     // When the player enters none of the expected options
     default:
       console.log("Please play a valid option!");
-      game();
-      return
-  }  
+  }
+  // Returns the result of the round
+  return roundResult;
 } // End of playRound functionn
 
 /** 
@@ -92,13 +92,19 @@ function game() {
       formattedUserSelection,
       computerPlay()
     );
-    console.log(`Round ${i + 1}: ${roundResultMessage}`);
-    // Checking the winner of each round
-    if (roundWinner === "player") {
-      playerScore += 1;
-    } else if (roundWinner === "computer") {
-      computerScore += 1;
-    }
+    // Checks if it was a valid round and restarts the game if it wasn't
+    if (roundResultMessage === "" && roundWinner === ""){
+      game();
+      return
+    } else{
+      console.log(`Round ${i + 1}: ${roundResultMessage}`);
+      // Checking the winner of each round
+      if (roundWinner === "player") {
+        playerScore += 1;
+      } else if (roundWinner === "computer") {
+        computerScore += 1;
+      }
+    }   
   }
   // Checking who is the winner at the end of the 5 rounds
   if (playerScore === computerScore) {
