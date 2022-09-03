@@ -94,8 +94,7 @@ function game() {
     );
     // Checks if it was a valid round and restarts the game if it wasn't
     if (roundResultMessage === "" && roundWinner === ""){
-      game();
-      return
+      i--;
     } else{
       console.log(`Round ${i + 1}: ${roundResultMessage}`);
       // Checking the winner of each round
