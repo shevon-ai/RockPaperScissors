@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,300&display=swap" rel="stylesheet">
     <script src="game.js" defer></script>
 </head>
 <body>
+    <h1 id="heading">Rock Paper Scissors</h1>
+    <div id="results-payne" class="hidden">
+        <h2>Results</h2>
+    </div>
+    <div id="options-container" class="hidden">
+        <button class="glow-on-hover options hidden" type="button" value="Rock">ROCK</button>
+        <button class="glow-on-hover options hidden" type="button" value="Paper">PAPER</button>
+        <button class="glow-on-hover options hidden" type="button" value="Scissors">SCISSORS</button>
+    </div> 
+    <button id="play-game" class="glow-on-hover" type="button">PLAY GAME</button>
+    <button id="end-game" class="glow-on-hover hidden" type="button">END GAME</button>
 </body>
 </html>
