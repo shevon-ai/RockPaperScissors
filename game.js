@@ -1,8 +1,11 @@
+/*          DOM ELEMENTS TO BE MANIPULATED          */
 const GAME_OPTIONS = document.querySelectorAll(".options");
 const OPTIONS_CONTAINER = document.querySelector("#options-container");
 const START_GAME = document.querySelector("#play-game");
 const END_GAME = document.querySelector("#end-game");
 const RESULTS_PAYNE = document.querySelector("#results-payne");
+
+/*          INITIALIZATION OF VARIABLES          */
 let playerScore = 0,
   computerScore = 0,
   counter = 0;
@@ -78,6 +81,9 @@ function playRound(playerSelection, computerSelection) {
   return roundResult;
 } // End of playRound functionn
 
+/**
+ * Starts the game 
+ */
 function handleStartGame() {
   START_GAME.classList.add("hidden");
   END_GAME.classList.remove("hidden");
@@ -88,6 +94,9 @@ function handleStartGame() {
   });
 }
 
+/**
+ * Ends the gmae
+ */
 function handleEndGame() {
   START_GAME.classList.remove("hidden");
   END_GAME.classList.add("hidden");
@@ -95,6 +104,11 @@ function handleEndGame() {
   OPTIONS_CONTAINER.classList.add("hidden");
 }
 
+/**
+ * 
+ * @param {The player's optiion (Rock, Paper or Scissors)} play 
+ * Updates the score depending on who wins
+ */
 function handleOptions(play) {
   counter++;
   let { roundResultMessage, roundWinner } = playRound(play, computerPlay());
@@ -121,14 +135,16 @@ function handleOptions(play) {
   }
 }
 
-START_GAME.addEventListener("click", handleStartGame);
+/*          ADDING EVENT LISTENERS TO DOM ELEMENTS         */
+START_GAME.addEventListener("click", handleStartGame); // START GAME BUTTON
+// GAME OPTIONS BUTTONS
 Array.prototype.forEach.call(GAME_OPTIONS, (option) => {
   option.addEventListener("click", function () {
     handleOptions(option.value);
   });
 });
 
-END_GAME.addEventListener("click", handleEndGame);
+END_GAME.addEventListener("click", handleEndGame); // END GAME BUTTON
 /**
  * The game function plays 5 rounds of the game. It logs the winner
  * of each round and the overall winner of the game at the end of the 5 rounds
