@@ -105,6 +105,7 @@ function handleEndGame() {
   Array.prototype.forEach.call(GAME_OPTIONS, (option) => {
     option.classList.add("hidden");
   });
+  RESULTS_PAYNE.innerHTML = "<h2>Results</h2>";
 }
 
 /**
