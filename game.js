@@ -102,6 +102,9 @@ function handleEndGame() {
   END_GAME.classList.add("hidden");
   RESULTS_PAYNE.classList.add("hidden");
   OPTIONS_CONTAINER.classList.add("hidden");
+  Array.prototype.forEach.call(GAME_OPTIONS, (option) => {
+    option.classList.add("hidden");
+  });
 }
 
 /**
